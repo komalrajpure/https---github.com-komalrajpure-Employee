@@ -1,0 +1,10 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

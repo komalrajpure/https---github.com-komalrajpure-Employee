@@ -1,0 +1,79 @@
+{% extends 'emp_base.html' %}
+
+{% block main %}
+
+
+<form method="post" action="" >
+        {% csrf_token %}
+    <fieldset>
+        <h2>Leave Request Form<br><small></small></h2>
+    </fieldset>
+    
+    <fieldset>
+        <legend for="1874755157">Name</legend>
+        <div class="form-group">
+            <input id="1729637716" type="text" name="name" class="form-control"  required>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend for="184780103">Email</legend>
+        <div class="form-group">
+            <input id="1770396749" type="text" name="email" class="form-control"  >
+    </fieldset>
+    
+    <fieldset>
+        <legend for="376082603">Empcode</legend>
+        <div class="form-group">
+            <input id="589094590" type="text" name="code" class="form-control"  required>
+        </div>
+    </fieldset>
+    
+    
+    
+   
+    
+    <fieldset>
+        <legend for="1833993761">Start Date</legend>
+        <div class="form-group">
+            <input type="date" id="1989254035_date" name="sdate" placeholder="8/23/2019" class="form-control" required>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend for="861643251">End Date</legend>
+        <div class="form-group">
+            <input type="date" id="1403025287_date"  name="edate"  placeholder="8/23/2019" class="form-control" >
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend for="388489461">Reason</legend>
+        <div class="form-group">
+            <textarea id="1357270616" name="reason" class="form-control" required></textarea>
+        </div>
+    </fieldset>
+    <input type="submit" value="submit" value="Submit" class=" m-2 px-3 btn btn-primary">
+   
+    </div>
+    
+
+</body>
+</html>
+
+
+{%  if error == "no" %}
+<script>
+    alert(' Leave requested ');
+    window.location=("{% url 'emp_home' %}");
+   
+</script> 
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('something went wrong Try Again...');
+
+</script>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'admin_base.html' %} 
+ 
+{% block main %} 
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<link rel="stylesheet"  href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<link rel="stylesheet"   href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+</script>
+<div class="card shadow m-2">
+    <div class="card-body">
+    <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Employee Details</h5>
+    <div class="container-fluid">
+        <table class="table table-bordered  table-hover "  id="example" >
+            <thead class = "text-danger"+>
+                <tr>
+                    <th>Sr.No </th>
+                    <th>Employee Code </th>
+                    <th>First Name </th>
+                    <th>Last Name </th>
+                    <th>Email ID</th>
+                    <th>Contact</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>Joining Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in employee %}
+                <tr>
+                   
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.empcode}}</td>
+                    <td>{{i.user.first_name}}</td>
+                    <td>{{i.user.last_name}}</td>
+                    <td>{{i.user.username}}</td>
+                    <td>{{i.contact}}</td>
+                    <td>{{i.empdept}}</td>
+                    <td>{{i.designation}}</td>
+                    <td>{{i.joiningdate}}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'emp_base.html' %}
+
+{% block main %}
+<div class="card shadow m-2">
+  <div class="card-body">
+    <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Leave Requests</h5>
+    <div class="container-fluid">
+     
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+           
+            <th>Name</th>
+            <th>Email ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in leave %}
+          <tbody>
+            <tr>
+             
+                <th scope="row">{{i.Name}}</th>
+                <th scope="row">{{i.Email}}</th>
+                <th scope="row">{{i.Start_Date}}</th>
+                <th scope="row">{{i.End_Date}}</th>
+                <th scope="row">{{i.Reason}}</th>
+                <th scope="row">{{i.Status}}
+                    {% if i.status == 1 %}
+                      Approved
+                    {% elif i.status == 2 %}
+                      Rejected
+                    {% else %}
+                      Pending
+                    {% endif %}
+      
+              
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock %}

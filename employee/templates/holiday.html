@@ -1,0 +1,57 @@
+{% extends 'emp_base.html' %}
+{% block main %}
+<html>
+    <head>
+        <h1><center>Holiday List</center></h1>
+        
+ 
+
+        <style> 
+        table {
+  border:1px solid black;
+
+  
+  width: 100%;
+  border: 1px solid #ddd;
+}
+  
+ th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+
+tr:nth-child(odd) {
+  background-color: #cffbf6;
+}
+
+        </style>
+       
+          
+    </head>
+
+
+<body>
+   
+    <table  class="table table-bordered">
+        <thead>
+             <tr>
+            <th scope="col">Date</th>
+             <th scope="col">Day</th>
+            <th scope="col">Name</th>
+            </tr>
+        </thead>
+        {% for hday in hdays %}
+        <tbody>
+            <tr>
+                <th scope="row">{{hday.Date}}</th>
+                <th scope="row">{{hday.Day}}</th>
+                <th scope="row">{{hday.Name}}</th>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock %}
+
